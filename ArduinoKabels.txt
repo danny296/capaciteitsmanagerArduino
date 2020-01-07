@@ -1,0 +1,7 @@
+geel = geel
+blauw = zwart
+groen = rood
+
+wit = geel
+grijs = zwart
+paars = rood
