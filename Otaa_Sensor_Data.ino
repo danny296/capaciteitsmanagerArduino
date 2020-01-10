@@ -34,8 +34,8 @@
 #include <SPI.h>
 #include <SharpIR.h>
 
-#define IRPin1 A0
-#define IRPin2 A1
+#define IRPin1 A3
+#define IRPin2 A4
 #define model 1080
 
 // This EUI must be in little-endian format, so least-significant-byte
@@ -177,16 +177,16 @@ void do_send(osjob_t* j){
 void do_scan(osjob_t* j){
   int distance_cm1 = mySensor1.distance();
   int distance_cm2 = mySensor2.distance();
-
-    if(distance_cm1 > 70){
+  
+    if(distance_cm1 > 10){
       contiIn = true;
     }
 
-    if(distance_cm2 > 70){
+    if(distance_cm2 > 10){
       contiOut = true;
     }
 
-    if (distance_cm1 <  70 && contiIn == true) {
+    if (distance_cm1 <  10 && contiIn == true) {
       if (dir == "") {
         dir = "in";
         active1 = true;
@@ -202,7 +202,7 @@ void do_scan(osjob_t* j){
       Serial.println(dir);
     }
 
-    if (distance_cm2 < 70 && contiOut == true)  {
+    if (distance_cm2 < 10 && contiOut == true)  {
       if (dir == "") {
         dir = "out";
         active2 = true;
@@ -221,10 +221,12 @@ void do_scan(osjob_t* j){
    if (active1 == true && active2 == true) {
     if (dir == "in") {
       inRuimte ++;
+      Serial.println("plus");
     } else {
       if(inRuimte == 0){}
       else{
         inRuimte --;
+        Serial.println("min");
       }
     }
     dir = "";
