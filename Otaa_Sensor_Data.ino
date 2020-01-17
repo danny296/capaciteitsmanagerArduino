@@ -221,12 +221,10 @@ void do_scan(osjob_t* j){
    if (active1 == true && active2 == true) {
     if (dir == "in") {
       inRuimte ++;
-      Serial.println("plus");
     } else {
       if(inRuimte == 0){}
       else{
         inRuimte --;
-        Serial.println("min");
       }
     }
     dir = "";
