@@ -34,8 +34,8 @@
 #include <SPI.h>
 #include <SharpIR.h>
 
-#define IRPin1 A3
-#define IRPin2 A4
+#define IRPin1 A0
+#define IRPin2 A1
 #define model 1080
 
 // This EUI must be in little-endian format, so least-significant-byte
